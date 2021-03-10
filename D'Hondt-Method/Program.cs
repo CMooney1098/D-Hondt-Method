@@ -57,9 +57,9 @@ namespace D_Hondt_Method
 
         static void Allocation(SortedList<int, string> partyName, SortedList<int, string> partySeats, SortedList<int, int> votes, SortedList<int, int> seatsWon, SortedList<int, int> orginal)
         {
-            int availableSeats = 5;
+            string availableSeats = File.ReadLines("Assessment1Data.txt").Skip(1).Take(1).First();
 
-            for (int i = 1; i <= availableSeats; i++)
+            for (int i = 1; i <= Convert.ToInt32(availableSeats); i++)
             {
                 var orderByValue = votes.OrderByDescending(kvp => kvp.Value);
                 int topVote = orderByValue.ElementAt(0).Key;
